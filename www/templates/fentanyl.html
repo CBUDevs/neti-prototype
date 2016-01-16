@@ -1,0 +1,11 @@
+<ion-view title="{{item.name}}">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list"></form>
+        <button class="button button-stable button-block ">Index</button>
+        <ion-item ng-repeat="header in item.header">
+            <h2>{{ item.header[$index] }}</h2>
+            <p>{{ item.paragraph[$index] }}</p>
+            
+        </ion-item>
+    </ion-content>
+</ion-view>

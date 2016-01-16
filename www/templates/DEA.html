@@ -1,0 +1,15 @@
+<ion-view title="National Emerging Threats Initiative">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input" name="SearchBar">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="Search">
+            </label>
+        </form>
+        <ion-list>
+            <ion-item href="#/info/{{item.id}}" ng-repeat="item in items">
+                {{item.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
