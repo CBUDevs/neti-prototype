@@ -6,15 +6,16 @@
                 <input type="search" ng-model="q" placeholder="Search" >
             </label>
         </form>
+        <!-- Filters the results from the search bar -->
         <ion-list>
-            <ul class="example-animate-container">
+            <ul>
                 <li class="animate-repeat" ng-repeat="item in items | filter:q as results">
                     <ion-item href="#/info/{{item.id}}">
                         {{item.name}}
                     </ion-item>
                 </li>
                 <li class="animate-repeat" ng-if="results.length == 0">
-                    <strong>No results found...</strong>
+                    <strong>Uh oh! There's nothing here.</strong>
                 </li>
             </ul>
         </ion-list>

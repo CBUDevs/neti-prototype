@@ -8,16 +8,16 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
    
-    .state('DEA', {
+    .state('menu', {
       url: '/index',
-      templateUrl: 'templates/DEA.html',
-      controller: 'DEACtrl'
+      templateUrl: 'templates/menu.html',
+      controller: 'menuCtrl'
     })
   
-    .state('fentanyl', {
+    .state('details', {
       url: '/info/:itemId',
-      templateUrl: 'templates/fentanyl.html',
-      controller: 'fentanylCtrl'
+      templateUrl: 'templates/details.html',
+      controller: 'detailsCtrl'
     });
 
   // if none of the above states are matched, use this as the fallback

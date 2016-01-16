@@ -8,6 +8,8 @@ angular.module('app.services', [])
 
 }])
 
+// Used for detials.html but not menu.html.
+// Having menu.html use this as well would be ideal.
 .factory('Items', function() {
   // Might use a resource here that returns a JSON array
 
@@ -30,7 +32,7 @@ angular.module('app.services', [])
 
   return {
     all: function() {
-      return chats;
+      return items;
     },
     remove: function(item) {
       items.splice(items.indexOf(item), 1);
