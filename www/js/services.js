@@ -8,9 +8,7 @@ angular.module('app.services', [])
 
 }])
 
-// Used for detials.html but not menu.html.
-// Having menu.html use this as well would be ideal.
-.factory('Items', function() {
+.factory('Item', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
