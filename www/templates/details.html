@@ -3,16 +3,12 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <form class="list"></form>
         <ion-item ng-repeat="header in item.header">
-            <!-- <button class ="button button-stable button-block" >{{ item.header[$index] }}</button>
-            <p>{{ item.paragraph[$index] }}</p> -->
             {{ item.header[$index] }} <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
 <div>
   <div class="check-element animate-show" ng-show="checked">
     <p>{{ item.paragraph[$index] }}</p>
   </div>
 </div>
-
-            
         </ion-item>
     </ion-content>
 </ion-view>
