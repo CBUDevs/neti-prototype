@@ -20,6 +20,8 @@ angular.module('app.services', [])
   }, {
     id: 1,
     name: 'Marijuana',
+    header: ["What is Marijuana?", "Marijuana on the Street"],
+    paragraph: ["Marijuana is a drug", "is wasted marijuana" ]
   }, {
     id: 2,
     name: 'Cocaine',
