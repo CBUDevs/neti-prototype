@@ -16,7 +16,7 @@ angular.module('app.services', [])
     id: 0,
     name: 'Fentanyl',
     header: ["What is Fentanyl?", "Fentanyl on the Street"],
-    paragraph: ["P1", "P2"]
+    string: ["P1", "P2"]
   }, {
     id: 1,
     name: 'Marijuana',
