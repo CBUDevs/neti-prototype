@@ -3,13 +3,20 @@
         <form class="list">
             <label class="item item-input" name="SearchBar">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="search" placeholder="Search">
+                <input type="search" ng-model="q" placeholder="Search" >
             </label>
         </form>
         <ion-list>
-            <ion-item href="#/info/{{item.id}}" ng-repeat="item in items">
-                {{item.name}}
-            </ion-item>
+            <ul class="example-animate-container">
+                <li class="animate-repeat" ng-repeat="item in items | filter:q as results">
+                    <ion-item href="#/info/{{item.id}}">
+                        {{item.name}}
+                    </ion-item>
+                </li>
+                <li class="animate-repeat" ng-if="results.length == 0">
+                    <strong>No results found...</strong>
+                </li>
+            </ul>
         </ion-list>
     </ion-content>
 </ion-view>
