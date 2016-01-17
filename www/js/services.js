@@ -9,35 +9,33 @@ angular.module('app.services', [])
 }])
 
 .factory('Item', function($http) {
-  // Might use a resource here that returns a JSON array
-      
-    
-  /*var items = [];
-  $http.get("http://eosx.net/DEA/moreTestierTest.php").success(function(response) {
-      //console.log(response);
-      angular.forEach(response.data.children, function(child) {
-          console.log(child.data);
-          //items.push(child.data);
-      });
-  });*/
-  // Some fake testing data
+  // Default array that will show if unable to connect to the JSON database.
   var items = [{
-    id: 0,
-    name: 'Fentanyl',
-    header: ["What is Fentanyl?", "Fentanyl on the Street"],
-    string: ["P1", "P2"]
-  }, {
-    id: 1,
-    name: 'Marijuana',
-    header: ["What is Marijuana?", "Marijuana on the Street"],
-    string: ["Marijuana is a drug", "is wasted marijuana" ]
-  }, {
-    id: 2,
-    name: 'Cocaine',
-  }, {
-    id: 3,
-    name: 'Heroine',
+        id: 0,
+        name: 'Fentanyl',
+        header: ["What is Fentanyl?", "Fentanyl on the Street"],
+        string: ["P1", "P2"]
+      }, {
+        id: 1,
+        name: 'Marijuana',
+        header: ["What is Marijuana?", "Marijuana on the Street"],
+        string: ["Marijuana is a drug", "is wasted marijuana" ]
+      }, {
+        id: 2,
+        name: 'Cocaine',
+      }, {
+        id: 3,
+        name: 'Heroine',
   }];
+    
+  var url = "http://eosx.net/DEA/moreTestierTest.php?callback=JSON_CALLBACK";
+    
+  $http.jsonp(url).success(function(data){
+      console.log(data);
+      items = [];
+  }).error(function(data) {
+      console.log("Unable to connect to JSON database. Using default values instead.");  
+  });
 
   return {
     all: function() {
