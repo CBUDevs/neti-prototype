@@ -8,9 +8,18 @@ angular.module('app.services', [])
 
 }])
 
-.factory('Item', function() {
+.factory('Item', function($http) {
   // Might use a resource here that returns a JSON array
-
+      
+    
+  /*var items = [];
+  $http.get("http://eosx.net/DEA/moreTestierTest.php").success(function(response) {
+      //console.log(response);
+      angular.forEach(response.data.children, function(child) {
+          console.log(child.data);
+          //items.push(child.data);
+      });
+  });*/
   // Some fake testing data
   var items = [{
     id: 0,
