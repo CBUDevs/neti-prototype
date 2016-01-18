@@ -1,2 +1,30 @@
-/* Empty. Add your own CSS if you like */
+* {
+    text-shadow: .3px .3px .3px gray;
+}
 
+.has-header {
+     background-color: lightskyblue;
+}
+
+.item-input{
+    box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5);
+}
+
+.animate-show {
+  line-height: 25px;
+  padding-bottom: 3px;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove{
+    transition: all linear 0.25s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 3px;
+}
+
+.bar-header {
+  box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5);
+}

@@ -3,14 +3,14 @@
         <form class="list">
             <label class="item item-input" name="SearchBar">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="search" ng-model="q" placeholder="Search" ></input>
+                <input style="text-align: left" type="search" ng-model="q" placeholder= "Search" ></input>
             </label>
         </form>
         <!-- Filters the results from the search bar -->
         <ion-list>
             <ul>
-                <li class="animate-repeat" ng-repeat="item in items | filter:q as results">
-                    <ion-item href="#/info/{{item.uid}}">
+                <li style="text-align: center" class="animate-repeat" ng-repeat="item in items | filter:q as results">
+                    <ion-item style="box-shadow: 2px 2px 3px rgba(1,1,1,.5);" href="#/info/{{item.uid}}">
                         {{ item.name }}
                     </ion-item>
                 </li>
