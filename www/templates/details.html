@@ -2,11 +2,11 @@
 <ion-view title="{{item.name}}">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <form class="list"></form>
-        <ion-item ng-init="show=false" ng-repeat="header in item.header" ng-click="show = !show">
-            {{ item.header[$index] }}<br/>
+        <ion-item ng-init="show=false" ng-repeat="headerString in item.headerString" ng-click="show = !show">
+            {{ item.headerString[$index] }}<br/>
         <div>
           <div ng-show="show" ng-hide="!show" class="animate-show">
-            <p>{{ item.string[$index] }}</p>
+            <p>{{ item.content[$index] }}</p>
           </div>
         </div>
         </ion-item>

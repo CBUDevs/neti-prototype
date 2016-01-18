@@ -15,7 +15,7 @@ angular.module('app.routes', [])
     })
   
     .state('details', {
-      url: '/info/:itemId',
+      url: '/info/:itemUid',
       templateUrl: 'templates/details.html',
       controller: 'detailsCtrl'
     });

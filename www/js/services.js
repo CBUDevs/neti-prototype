@@ -8,46 +8,51 @@ angular.module('app.services', [])
 
 }])
 
-.factory('Item', function($http) {
-  // Default array that will show if unable to connect to the JSON database.
-  var items = [{
-        id: 0,
+.factory('Item', function($http, $q) {
+  var items = null;
+    
+    items = [{
+        content: ["P1", "P2"],
+        headerString: ["What is Fentanyl?", "Fentanyl on the Street"],
         name: 'Fentanyl',
-        header: ["What is Fentanyl?", "Fentanyl on the Street"],
-        string: ["P1", "P2"]
+        uid: 0,
       }, {
-        id: 1,
-        name: 'Marijuana',
-        header: ["What is Marijuana?", "Marijuana on the Street"],
-        string: ["Marijuana is a drug", "is wasted marijuana" ]
+        content: ["Marijuana is a drug", "is wasted marijuana" ],
+        headerString: ["What is Marijuana?", "Marijuana on the Street"],
+        name: 'Marijuana',   
+        uid: 1,
       }, {
-        id: 2,
+        uid: 2,
         name: 'Cocaine',
       }, {
-        id: 3,
+        uid: 3,
         name: 'Heroine',
-  }];
+      }];
     
   var url = "http://eosx.net/DEA/moreTestierTest.php?callback=JSON_CALLBACK";
     
-  $http.jsonp(url).success(function(data){
-      console.log(data);
-      items = [];
+  // Default array that will show if unable to connect to the JSON database.
+  var promise = $http.jsonp(url).success(function(data){
+      items = angular.fromJson(data);
+      console.log(items[0].name);
   }).error(function(data) {
-      console.log("Unable to connect to JSON database. Using default values instead.");  
+      console.log("Unable to connect to JSON database. Using default values instead.");
   });
 
+    this.getItems = function () {
+        return items.promise;    
+    }
   return {
     all: function() {
-      return items;
+      return items.promise;
     },
     remove: function(item) {
       items.splice(items.indexOf(item), 1);
     },
-    get: function(itemId) {
+    get: function(itemUid) {
       for (var i = 0; i < items.length; i++) {
-        if (items[i].id === parseInt(itemId)) {
-          return items[i];
+        if (items[i].uid === parseInt(itemUid)) {
+          return items[i].promise;
         }
       }
       return null;
