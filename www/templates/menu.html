@@ -3,7 +3,7 @@
         <form class="list">
             <label class="item item-input" name="SearchBar">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input style="text-align: left" type="search" ng-model="q" placeholder= "Search"  ></input>
+                <input style="text-align: left" type="search" ng-model="q.name" placeholder= "Search"  ></input>
             </label>
         </form>
         <!-- Filters the results from the search bar -->
@@ -15,7 +15,7 @@
                     </ion-item>
                 </li>
                 <li class="animate-repeat" ng-if="results.length == 0">
-                    <strong>Uh oh! There's nothing here.</strong>
+                    <ion-item style="text-align: center"><strong>Uh oh! There's nothing here!</strong></ion-item>
                 </li>
             </ul>
         </ion-list>
