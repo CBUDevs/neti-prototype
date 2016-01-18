@@ -28,6 +28,8 @@ angular.module('app.services', [])
         uid: "2",
         name: 'Cocaine',
       }, {
+        content: ["Shoot it up, brah"],
+        header: ["HEERRROOOOIINNE"],
         uid: "3",
         name: 'Heroine',
   }];
