@@ -11,16 +11,16 @@ angular.module('app.services', [])
 .factory('Item', function($http, $q) {
   var items = [{
         content: ["P1", "P2"],
-        headerString: ["What is Fentanyl?", "Fentanyl on the Street"],
+        header: ["What is Fentanyl?", "Fentanyl on the Street"],
         name: 'Fentanyl',
         uid: "0",
       }, {
-        contentDisplay: ["Marijuana is a drug", "is wasted marijuana" ],
+        content: ["Marijuana is a drug", "is wasted marijuana" ],
         header: ["What is Marijuana?", "Marijuana on the Street"],
         name: 'Marijuana',   
         uid: "1",
       }, {
-        contentDisplay: ["COCAAIIINE"],
+        content: ["COCAAIIINE"],
         header: ["COOOOOOIKEIIIN"],
         uid: "2",
         name: 'Cocaine',

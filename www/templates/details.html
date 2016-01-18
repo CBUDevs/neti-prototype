@@ -2,8 +2,8 @@
 <ion-view title="{{item.name}}">
     <ion-content  overflow-scroll="true" padding="true" class="has-header">
         <form class="list"></form>
-        <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px"  ng-init="show=false" ng-repeat="header in item.headerString" ng-click="show = !show">
-            {{ item.headerString[$index] }} 
+        <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px"  ng-init="show=false" ng-repeat="header in item.header" ng-click="show = !show">
+            {{ item.header[$index] }} 
             <span class="downArrow" style="float:right;">▼</span>
             <br/>
         <div>
