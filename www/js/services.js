@@ -9,9 +9,7 @@ angular.module('app.services', [])
 }])
 
 .factory('Item', function($http, $q) {
-  var items = null;
-    
-    items = [{
+  var items = [{
         content: ["P1", "P2"],
         headerString: ["What is Fentanyl?", "Fentanyl on the Street"],
         name: 'Fentanyl',
@@ -29,9 +27,9 @@ angular.module('app.services', [])
       }, {
         uid: "3",
         name: 'Heroine',
-      }];
-     console.log(items[0]);
-  var url = "http://eosx.net/DEA/moreTestierTest.php?callback=JSON_CALLBACK";
+  }];
+    
+  var url = "http://eosx.net/DEA/moreTestierTest.php?callback=JSON_CALLBACK ads";
     
   // Default array will show if unable to connect to the JSON database.
   var promise = $http.jsonp(url).success(function(data){
@@ -48,7 +46,6 @@ angular.module('app.services', [])
       }
       console.log(items);
   }).error(function(data) {
-      console.log("Unable to connect to JSON database. Using default values instead.");
       console.log(items);
   });
 
@@ -69,4 +66,3 @@ angular.module('app.services', [])
     }
   };
 });
-
