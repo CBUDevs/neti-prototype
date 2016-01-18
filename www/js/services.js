@@ -15,44 +15,54 @@ angular.module('app.services', [])
         content: ["P1", "P2"],
         headerString: ["What is Fentanyl?", "Fentanyl on the Street"],
         name: 'Fentanyl',
-        uid: 0,
+        uid: "0",
       }, {
-        content: ["Marijuana is a drug", "is wasted marijuana" ],
-        headerString: ["What is Marijuana?", "Marijuana on the Street"],
+        contentDisplay: ["Marijuana is a drug", "is wasted marijuana" ],
+        header: ["What is Marijuana?", "Marijuana on the Street"],
         name: 'Marijuana',   
-        uid: 1,
+        uid: "1",
       }, {
-        uid: 2,
+        contentDisplay: ["COCAAIIINE"],
+        header: ["COOOOOOIKEIIIN"],
+        uid: "2",
         name: 'Cocaine',
       }, {
-        uid: 3,
+        uid: "3",
         name: 'Heroine',
       }];
-    
+     console.log(items[0]);
   var url = "http://eosx.net/DEA/moreTestierTest.php?callback=JSON_CALLBACK";
     
-  // Default array that will show if unable to connect to the JSON database.
+  // Default array will show if unable to connect to the JSON database.
   var promise = $http.jsonp(url).success(function(data){
       items = angular.fromJson(data);
-      console.log(items[0].name);
+      for(var i = 0; i < items.length; i++) {
+          var contentDisplay = new Array();
+          contentDisplay.push(items[i].content);
+
+          var header = new Array();
+          header.push(items[i].headerString);
+          
+          items[i].content = contentDisplay;
+          items[i].headerString = header;
+      }
+      console.log(items);
   }).error(function(data) {
       console.log("Unable to connect to JSON database. Using default values instead.");
+      console.log(items);
   });
 
-    this.getItems = function () {
-        return items.promise;    
-    }
   return {
     all: function() {
-      return items.promise;
+      return items;
     },
     remove: function(item) {
       items.splice(items.indexOf(item), 1);
     },
     get: function(itemUid) {
       for (var i = 0; i < items.length; i++) {
-        if (items[i].uid === parseInt(itemUid)) {
-          return items[i].promise;
+        if (items[i].uid === itemUid) {
+          return items[i];
         }
       }
       return null;
