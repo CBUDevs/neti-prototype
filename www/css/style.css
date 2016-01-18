@@ -13,6 +13,7 @@
 .animate-show {
   line-height: 25px;
   padding-bottom: 3px;
+  transition: all linear .25s;
 }
 
 .animate-show.ng-hide-add, .animate-show.ng-hide-remove{
@@ -23,6 +24,7 @@
   line-height: 0;
   opacity: 0;
   padding: 0 3px;
+    transition: all linear .25s;
 }
 
 .bar-header {
