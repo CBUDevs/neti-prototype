@@ -15,24 +15,13 @@ angular.module('app.services', [])
 "Naloxone reverses the effects of fentanyl and other opiate exposures and should be administered immediately upon exposure. Naloxone has a short half-life (roughly 1 hour), thus multiple doses may need to be given as long as the drug is still in the system. Naloxone is available as an injectable or as a nasal spray, which is a less intrusive means of administration. Should a situation arise where there is a high risk for fentanyl exposure, individuals may consider administering naloxone prior to the start of the operation (noting the naloxone will only be in the system for roughly one hour).", "To reduce the risk of exposure to fentanyl, law enforcement personnel should consider incorporating the following protocols when practical. Firsly, use nitrite gloves when handling narcotic evidence. Reduce the chance of the sample going airborne. Analyze sample with a Raman or FTIR field instrument through original packaging it po Leave evidence in original packaging and use small sample sizes for color tests. Leave evidence in original packaging and submit to laboratory using the gross weight (weight of sample and packaging). Washing the hands and any exposed areas of skin with soap and water after handling narcotics. Write a warning on evidence packing that 'sample(s) may contain fentanyl'. Launder any clothing that may be potentially be contaminated"
 ,  "As the popularity of fentanyl as a street drug grows, the risk of exposure to law enforcement personnel is greatly increased. Precautions to avoid skin contact and inhalation of any street level narcotics need to be enforced for law enforcement personnel at all levels. Agencies should consider all options for the quick access and availability of naloxone in the event of an exposure incident.Certain scenes or conditions may require a hazmat or clandestine laboratory response team to mitigate. Agencies should consider training all law enforcement personnel who handle narcotics in the hazards of fentanyl and the signs and symptoms of exposure. Training is a critical element in reducing the risk of injury."],
         headerString: ["What is Fentanyl?", "Fentanyl on the Street", "Toxicity", "Hazards to Law Enforcement", "Law Enforcement Precautions", "Field Tests for Law Enforcement", "Fentanyl Exposure Signs and Symptoms", "Naloxone (Narcan)", "Recommended Protocols for Law Enforcement", "Officer Safety"],
-        name: 'Fentanyl',
+        name: 'OFFLINE-Fentanyl',
         uid: "0",
       }, {
-        content: ["Marijuana is a drug", "is wasted marijuana" ],
-        headerString: ["What is Marijuana?", "Marijuana on the Street"],
-        name: 'Marijuana',   
-        uid: "1",
-      }, {
-        content: ["COCAAIIINE"],
-        headerString: ["COOOOOOIKEIIIN"],
-        uid: "2",
-        name: 'Cocaine',
-      }, {
-        content: ["Shoot it up, brah"],
-        headerString: ["HEERRROOOOIINNE"],
-        uid: "3",
-        name: 'Heroine',
-  }];
+        content: ["This app was made to gather info about emerging threats from an online database and display the info in the app. The app is divided into a topic (such as 'Fentanyl'), sujects (such as 'What is Fentanyl?'), and subject content (such as 'Fentanyl is one of the most potent opioid drugs...'). However, if the app is unable to connect to the database, the app provides default information that it will display if the most up to date info cannot be gathered from the daabase. The app was built using web frameworks and optimized using AngularJS. It gathers data using JSON fomatting from a server built through the php platform.", "The web app allows you to add bypass the update processes of the App Store and Google Processes by allowing you to update the database on the fly. You can add new topics, delete topics, or even edit the database! The moment you finish, the info you've provided will immediately be seen by all your users."],
+        "headerString": ["How does the mobile app work?", "How does the web app work?"],           "name": "OFFLINE-About This App",
+        "uid": "1",
+      }];
     
   var url = "http://eosx.net/DEA/inc/call.php?callback=JSON_CALLBACK";
 
@@ -40,7 +29,7 @@ angular.module('app.services', [])
   var promise = $http.jsonp(url).success(function(data){
       items = angular.fromJson(data);
   }).error(function(data) {
-      console.log("Couldn't connect with the server. Using")
+      console.log("Couldn't connect with the server. Using default values.")
   });
 
   return {
