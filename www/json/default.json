@@ -1,4 +1,4 @@
-[{"content": "P1","headerString": "What is Fentanyl?","name": 'Fentanyl',"uid": "0"},
+JSON_CALLBACK([{"content": "P1","headerString": "What is Fentanyl?","name": 'Fentanyl',"uid": "0"},
 {"content": "Marijuana is a drug","headerString": "What is Marijuana?",	"name": "Marijuana",    "uid": "1"},
 {"content": "COCAAIIINE","headerString": "COOOOOOIKEIIIN","name": "Cocaine","uid": "2"},
-{"uid": "4","name": "Heroine",}]
+{"uid": "4","name": "Heroine",}])
