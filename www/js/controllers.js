@@ -5,10 +5,10 @@ angular.module('app.controllers', [])
     function callAtTimeout(){
         $scope.items = Item.all();
     }
-    /*$interval(update, 300);
+    $interval(update, 1000);
     function update(){
         $scope.items = Item.all();
-    }*/
+    }
 })
 
 .controller('detailsCtrl', function($scope, $stateParams, Item) {

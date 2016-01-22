@@ -1,5 +1,5 @@
 <!-- Takes the item id given by menu.html and gets additional details on the item -->
-<ion-view title="{{item.name}}" align-title="center">
+<ion-view title="{{item.name}}">
     <ion-content  overflow-scroll="true" padding="true" class="has-header">
         <form class="list"></form>
         <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px"  ng-init="show=false" ng-repeat="header in item.headerString | filter: q as resuls " ng-click="show = !show">
