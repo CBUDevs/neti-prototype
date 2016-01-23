@@ -2,14 +2,14 @@
 <ion-view title="{{item.name}}">
     <ion-content  overflow-scroll="true" padding="true" class="has-header">
         <form class="list"></form>
-        <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px"  ng-init="show=false" ng-repeat="header in item.headerString | filter: q as resuls " ng-click="show = !show">
+        <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px" ng-init="show=false" ng-repeat="header in item.headerString | filter: q as resuls " ng-click="show = !show">
             {{ item.headerString[$index] }} 
             <span ng-show="!show" ng-hide="show" class="downArrow" style="float:right">▼</span>
             <span ng-show="show" ng-hide="!show" class="downArrow" style="float:right">▲</span>
             <br/>
         <div>
-          <div style="text-align: left" ng-show="show" ng-hide="!show" class="animate-show">
-            <p it = "bind-default-content" style = "white-space: pre-wrap">{{ item.content[$index] }}</p>
+          <div ng-init="setContent($index)" style="text-align: left" ng-show="show" ng-hide="!show" class="animate-show">
+            <p ng-bind-html="content" it = "bind-default-content" style = "white-space: pre-wrap">{{ content }}</p>
           </div>
         </div>
         </ion-item>

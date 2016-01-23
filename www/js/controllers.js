@@ -11,7 +11,10 @@ angular.module('app.controllers', [])
     }
 })
 
-.controller('detailsCtrl', function($scope, $stateParams, Item) {
+.controller('detailsCtrl', function($scope, $sce, $stateParams, Item) {
     $scope.item = Item.get($stateParams.itemUid);
+    $scope.setContent = function(index) {
+        $scope.content = $sce.trustAsHtml($scope.item.content[index]);
+    }
 });
  
