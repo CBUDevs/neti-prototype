@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.helloandroid789138" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>HelloAndroid</name>
+  <name>National Emerging Threats Initiative</name>
   <description>
-        An Ionic Framework and Cordova project.
+        An app dedicated to educationg its users on emerging an prevelent drugs.
     </description>
   <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+      California Baptist University School of Engineering
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -20,6 +20,7 @@
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
   <platform name="android">
+      <preference name="Fullscreen" value="true"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
@@ -39,4 +40,5 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
+    <preference name="StatusBarOverlaysWebView" value="true"/>
 </widget>

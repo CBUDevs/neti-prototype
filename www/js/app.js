@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,3 +20,21 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
   });
 })
+
+document.addEventListener("deviceready", function () {
+    // Should work on Andriod
+    console.log("ENABLED");
+    if(StatusBar && statusbarTransparent) {
+        // Enable translucent statusbar
+        console.log("ENABLED");
+        statusbarTransparent.enable();
+
+        // Get the bar back
+        StatusBar.show();
+    }
+    // iOS only
+    else if (StatusBar) {
+        // Get the bar back
+        StatusBar.show();
+    }
+}, false);
