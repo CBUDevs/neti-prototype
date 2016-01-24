@@ -1,23 +1,50 @@
-<ion-view title="National Emerging Threats Initiative">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
+<ion-view title="{{ title }}">
+    <ion-nav-buttons side="right" ng-init ="showSearch = false">
+         <a ng-click="showSearch = !showSearch; setTitle('', showSearch)" data-tap-disabled="true" class=" button button-icon icon positive" ng-click="openFilters(hasFilters);" ng-class="{'ion-search':!hasFilters,'ion-close-circled':hasFilters}"></a>
+        <form class="list" ng-show="showSearch">
             <label class="item item-input" name="SearchBar">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input style="text-align: left" type="search" ng-model="q.name" placeholder= "Search"  ></input>
+                <input style="text-align: left" type="search" ng-model="q.name" placeholder= "Search" ></input>
             </label>
         </form>
+     </ion-nav-buttons>
+
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
         <!-- Filters the results from the search bar -->
         <ion-list>
             <ul>
-                <li style="text-align: center" class="animate-repeat" ng-repeat="item in items | filter:q as results">
-                    <ion-item style="box-shadow: 2px 2px 3px rgba(1,1,1,.5);" href="#/info/{{item.uid}}">
-                        {{ item.name }}
-                    </ion-item>
+                <li style="text-align: center" class="animate-repeat" ng-repeat="item in items | filter:q as results" ng-init="setItem(item.uid)">
+                    <div ng-click="showItem = !showItem; setTitle(item.name, showItem)">
+                        <ion-item style="box-shadow: 2px 2px 3px rgba(1,1,1,.5);" ng-click="setTitle(item.name, showItem)">
+                            {{ item.name }}
+                            <span ng-show="!showItem" ng-hide="showItem" class="downArrow" style="float:right">▼</span>
+                            <span ng-show="showItem" ng-hide="!showItem" class="downArrow" style="float:right">▲</span>
+                            <br/>
+                        </ion-item>
+                        <br/>
+                        <div ng-click="debug(showItem); showItem = true" ng-show="showItem">
+                            <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px" ng-repeat="header in item.headerString | filter: q as resuls " ng-init="show=false" ng-click="show = !show">
+                                <div class="animate-show">
+                                    {{ item.headerString[$index] }} 
+                                    <span ng-show="!show" ng-hide="show" class="downArrow" style="float:right">▼</span>
+                                    <span ng-show="show" ng-hide="!show" class="downArrow" style="float:right">▲</span>
+                                    <br/>
+                                    <div>
+                                      <div ng-init="setContent($index)" style="text-align: left" ng-show="show" ng-hide="!show" class="animate-show">
+                                        <p ng-bind-html="content" it = "bind-default-content" style = "white-space: pre-wrap">{{ content }}</p>
+                                      </div>
+                                    </div>
+                                </div>
+                            </ion-item>
+                        </div>
+                    </div>
                 </li>
                 <li class="animate-repeat" ng-if="results.length == 0">
-                    <ion-item style="text-align: center"><strong>Uh oh! There's nothing here!</strong></ion-item>
+                    <ion-item style="text-align: center; box-shadow: 2px 2px 3px rgba(1,1,1,.5);"><strong>Uh oh! There's nothing here!</strong></ion-item>
                 </li>
             </ul>
         </ion-list>
+        <button class="button button-float">
+            <i class="icon ion-plus"></i>
+        </button>
     </ion-content>
 </ion-view>
