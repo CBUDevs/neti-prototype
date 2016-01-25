@@ -1,13 +1,12 @@
 <ion-view title="{{ title }}">
     <ion-nav-buttons side="right" ng-init ="showSearch = false">
-         <a ng-click="showSearch = !showSearch; setTitle('', showSearch)" data-tap-disabled="true" class=" button button-icon icon positive" ng-click="openFilters(hasFilters);" ng-class="{'ion-search':!hasFilters,'ion-close-circled':hasFilters}"></a>
-        <form class="list" ng-show="showSearch">
+         <a align="right" ng-click="showSearch = !showSearch; setTitle('', showSearch)" data-tap-disabled="true" class=" button button-icon icon positive" ng-click="openFilters(hasFilters);" ng-class="{'ion-search':!hasFilters,'ion-close-circled':hasFilters}"></a>
+        <form id="searchBar" class="list" ng-show="showSearch">
             <label class="item item-input" name="SearchBar">
                 <input style="text-align: left" type="search" ng-model="q.name" placeholder= "Search" ></input>
             </label>
         </form>
      </ion-nav-buttons>
-
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <!-- Filters the results from the search bar -->
         <ion-list>
@@ -43,8 +42,8 @@
                 </li>
             </ul>
         </ion-list>
-        <button class="button button-float">
-            <i class="icon ion-plus"></i>
-        </button>
     </ion-content>
+<button class="button button-float">
+        <i class="icon ion-ios-paper"></i>
+      </button>
 </ion-view>

@@ -28,18 +28,19 @@
 }
 
 .bar-header {
-    height: 75px !important;
+  height: 75px !important;
   padding: 8px;
   box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5);
-    position: fixed;
+  position: fixed;
 }
 
 ion-nav-buttons {
-    height: 70px !important;
-     position: fixed;
+  height: 70px !important;
+  position: fixed;
 }
 
 .item.item-input {
+    padding: 0px 0px 0px 16px;
 }
 
 .bar .title {
@@ -49,13 +50,47 @@ ion-nav-buttons {
     padding: 25px 10px;
 }
 
-.fixed-outside{
+.platform-android.has-translucent-status-bar .app-header-bar  {
+    padding-top: 25px;
+}
+
+.platform-ios.has-translucent-status-bar .app-header-bar  {
+    padding-top: 20px;
+}
+
+.bar .title + .buttons {
+    top: 25px;
+    //width: 100%;
+}
+
+.bar .title + .buttons:hover {
+    //width: 90%;
+}
+
+.bar-positive .button.button-icon {
+    //position: absolute;
+    //right: 0px;
+}
+
+.right-buttons:hover {
+    //width: 90%;
+}
+
+#searchBar {
+    padding-right: 5px;
+    //width: 100%;
+}
+
+.button-float{
   background: $assertive !important;
+  background-color: red;
   color:white !important;
   z-index: 12 !important;
+  min-width: 70px;
+  min-height: 70px;
   position: absolute !important; 
-  bottom: 10px !important;
-  right: 10px !important;
+  bottom: 10% !important;
+  right: 5% !important;
   border-radius: 50% !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
   -webkit-transform: translate3d(0, 0, 0) !important;
@@ -64,12 +99,13 @@ ion-nav-buttons {
   transition: 0.2s linear !important;
   -webkit-transition-property: -webkit-transform, all !important;
   transition-property: transform, all !important;
+
 }
 
-.platform-android.has-translucent-status-bar .app-header-bar  {
-    padding-top: 25px;
-}
-
-.platform-ios.has-translucent-status-bar .app-header-bar  {
-    padding-top: 20px;
+.button-float:hover{
+  -webkit-transform: translate3d(0, -1px, 0)  !important;
+  transform: translate3d(0, -1px, 0) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
+    background: darken($assertive, 10%) !important;
+    background-color:red;
 }
