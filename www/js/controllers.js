@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
   
 .controller('menuCtrl', function($scope, $timeout, $interval, $sce, $stateParams, Item) {
-    $scope.title = "National Emerging Threats Initiative";
+    $scope.title = "NETI";
     $scope.showSearch = false;
     $scope.showItem = {};
     $scope.q = {}
@@ -29,7 +29,7 @@ angular.module('app.controllers', [])
         if (num) {
             $scope.title = title;
         } else {
-            $scope.title = "National Emerging Threats Initiative";
+            $scope.title = "NETI";
         }
     }
     $scope.show = function(index) {

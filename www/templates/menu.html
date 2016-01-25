@@ -6,13 +6,14 @@
                 <input style="text-align: left" type="search" ng-model="q.name" placeholder= "Search" ></input>
             </label>
         </form>
+    
      </ion-nav-buttons>
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <!-- Filters the results from the search bar -->
         <ion-list>
             <ul>
                 <li style="text-align: center" class="animate-repeat" ng-repeat="item in items | filter:q as results" ng-init="setItem(item.uid)">
-                    <ion-item style="box-shadow: 2px 2px 3px rgba(1,1,1,.5);" ng-click="show(item.uid); setTitle(item.name, showItem)">
+                    <ion-item style="box-shadow: 2px 2px 3px rgba(1,1,1,.5);" ng-click="show(item.uid); setTitle(item.name, showItem[item.uid])">
                         {{ item.name }}
                         <span ng-show="!showItem[item.uid]" ng-hide="showItem[item.uid]" class="downArrow" style="float:right">▼</span>
                         <span ng-show="showItem[item.uid]" ng-hide="!showItem[item.uid]" class="downArrow" style="float:right">▲</span>
