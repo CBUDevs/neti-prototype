@@ -86,11 +86,11 @@ ion-nav-buttons {
   background-color: red;
   color:white !important;
   z-index: 12 !important;
-  min-width: 70px;
-  min-height: 70px;
+  min-width: 40px;
+  min-height: 40px;
   position: absolute !important; 
-  bottom: 10% !important;
-  right: 5% !important;
+  top: 8% !important;
+  left: 5% !important;
   border-radius: 50% !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
   -webkit-transform: translate3d(0, 0, 0) !important;

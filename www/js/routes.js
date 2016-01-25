@@ -13,12 +13,6 @@ angular.module('app.routes', [])
       templateUrl: 'templates/menu.html',
       controller: 'menuCtrl'
     })
-  
-    .state('details', {
-      url: '/info/:itemUid',
-      templateUrl: 'templates/details.html',
-      controller: 'detailsCtrl'
-    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/index');

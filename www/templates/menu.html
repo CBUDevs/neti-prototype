@@ -12,30 +12,26 @@
         <ion-list>
             <ul>
                 <li style="text-align: center" class="animate-repeat" ng-repeat="item in items | filter:q as results" ng-init="setItem(item.uid)">
-                    <div ng-click="showItem = !showItem; setTitle(item.name, showItem)">
-                        <ion-item style="box-shadow: 2px 2px 3px rgba(1,1,1,.5);" ng-click="setTitle(item.name, showItem)">
-                            {{ item.name }}
-                            <span ng-show="!showItem" ng-hide="showItem" class="downArrow" style="float:right">▼</span>
-                            <span ng-show="showItem" ng-hide="!showItem" class="downArrow" style="float:right">▲</span>
-                            <br/>
-                        </ion-item>
+                    <ion-item style="box-shadow: 2px 2px 3px rgba(1,1,1,.5);" ng-click="show(item.uid); setTitle(item.name, showItem)">
+                        {{ item.name }}
+                        <span ng-show="!showItem[item.uid]" ng-hide="showItem[item.uid]" class="downArrow" style="float:right">▼</span>
+                        <span ng-show="showItem[item.uid]" ng-hide="!showItem[item.uid]" class="downArrow" style="float:right">▲</span>
                         <br/>
-                        <div ng-click="debug(showItem); showItem = true" ng-show="showItem">
-                            <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px" ng-repeat="header in item.headerString | filter: q as resuls " ng-init="show=false" ng-click="show = !show">
-                                <div class="animate-show">
-                                    {{ item.headerString[$index] }} 
-                                    <span ng-show="!show" ng-hide="show" class="downArrow" style="float:right">▼</span>
-                                    <span ng-show="show" ng-hide="!show" class="downArrow" style="float:right">▲</span>
-                                    <br/>
-                                    <div>
-                                      <div ng-init="setContent($index)" style="text-align: left" ng-show="show" ng-hide="!show" class="animate-show">
-                                        <p ng-bind-html="content" it = "bind-default-content" style = "white-space: pre-wrap">{{ content }}</p>
-                                      </div>
-                                    </div>
-                                </div>
-                            </ion-item>
+                    </ion-item>
+                    <br/>
+                    <ion-item style="box-shadow: 1.5px 1.5px 2px rgba(1,1,1,.5); text-align: left; border-width: 2.5px" ng-repeat="header in item.headerString" ng-init="show=false" ng-click="show = !show" ng-click="showItem[item.uid] = true" ng-show="showItem[item.uid]">
+                        <div class="animate-show">
+                            {{ item.headerString[$index] }} 
+                            <span ng-show="!show" ng-hide="show" class="downArrow" style="float:right">▼</span>
+                            <span ng-show="show" ng-hide="!show" class="downArrow" style="float:right">▲</span>
+                            <br/>
+                            <div>
+                              <div ng-init="setContent($index)" style="text-align: left" ng-show="show" ng-hide="!show" class="animate-show">
+                                <p ng-bind-html="content" it = "bind-default-content" style = "white-space: pre-wrap">{{ content }}</p>
+                              </div>
+                            </div>
                         </div>
-                    </div>
+                    </ion-item>
                 </li>
                 <li class="animate-repeat" ng-if="results.length == 0">
                     <ion-item style="text-align: center; box-shadow: 2px 2px 3px rgba(1,1,1,.5);"><strong>Uh oh! There's nothing here!</strong></ion-item>
@@ -43,7 +39,4 @@
             </ul>
         </ion-list>
     </ion-content>
-<button class="button button-float">
-        <i class="icon ion-ios-paper"></i>
-      </button>
 </ion-view>

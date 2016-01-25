@@ -3,6 +3,7 @@ angular.module('app.controllers', [])
 .controller('menuCtrl', function($scope, $timeout, $interval, $sce, $stateParams, Item) {
     $scope.title = "National Emerging Threats Initiative";
     $scope.showSearch = false;
+    $scope.showItem = {};
     $scope.q = {}
     $scope.q.name='';
     
@@ -31,15 +32,11 @@ angular.module('app.controllers', [])
             $scope.title = "National Emerging Threats Initiative";
         }
     }
-    $scope.debug = function() {
-        console.log('click');
+    $scope.show = function(index) {
+        $scope.showItem[index] = !$scope.showItem[index];
     }
-})
-
-.controller('detailsCtrl', function($scope, $sce, $stateParams, Item) {
-    $scope.item = Item.get($stateParams.itemUid);
-    $scope.setContent = function(index) {
-        $scope.content = $sce.trustAsHtml($scope.item.content[index]);
+    $scope.debug = function(bool) {
+        console.log(bool);
     }
 });
  
